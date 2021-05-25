@@ -102,29 +102,48 @@ QWdyZWdhcgA
                                     <action selector="agregarTapped:" destination="9QM-6r-Lm0" eventType="touchUpInside" id="Uxt-6M-I58"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55P-Tj-6Y4">
+                                <rect key="frame" x="198.5" y="442" width="17" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jU0-ut-fCX">
+                                <rect key="frame" x="48" y="505.5" width="318" height="31"/>
+                                <connections>
+                                    <action selector="volumeSlider:" destination="9QM-6r-Lm0" eventType="valueChanged" id="CBo-B0-IYu"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="55P-Tj-6Y4" firstAttribute="top" secondItem="NRa-dv-B07" secondAttribute="bottom" constant="20" id="1Nf-zJ-Mm1"/>
                             <constraint firstItem="nLO-eQ-Onh" firstAttribute="centerX" secondItem="dh9-4T-CQR" secondAttribute="centerX" id="2x1-g7-ShG"/>
+                            <constraint firstItem="jU0-ut-fCX" firstAttribute="leading" secondItem="mtQ-Du-eSe" secondAttribute="leading" constant="50" id="64B-KL-Cee"/>
                             <constraint firstItem="EMS-n5-AXF" firstAttribute="leading" secondItem="mtQ-Du-eSe" secondAttribute="leading" constant="50" id="756-sN-zDm"/>
                             <constraint firstItem="efv-RT-3eA" firstAttribute="top" secondItem="nLO-eQ-Onh" secondAttribute="bottom" constant="30" id="7YC-qa-4xX"/>
                             <constraint firstItem="EMS-n5-AXF" firstAttribute="top" secondItem="efv-RT-3eA" secondAttribute="bottom" constant="20" id="MaI-CH-XUO"/>
                             <constraint firstItem="nLO-eQ-Onh" firstAttribute="top" secondItem="mOs-X1-Rtw" secondAttribute="bottom" constant="20" id="Ppb-A1-R6O"/>
                             <constraint firstItem="efv-RT-3eA" firstAttribute="centerX" secondItem="dh9-4T-CQR" secondAttribute="centerX" id="RsU-vd-NQu"/>
                             <constraint firstItem="EMS-n5-AXF" firstAttribute="centerX" secondItem="dh9-4T-CQR" secondAttribute="centerX" id="UMM-0x-My4"/>
+                            <constraint firstItem="jU0-ut-fCX" firstAttribute="top" secondItem="55P-Tj-6Y4" secondAttribute="bottom" constant="30" id="UvW-5i-brh"/>
                             <constraint firstItem="NRa-dv-B07" firstAttribute="top" secondItem="EMS-n5-AXF" secondAttribute="bottom" constant="20" id="V8Q-mo-OHo"/>
+                            <constraint firstItem="55P-Tj-6Y4" firstAttribute="centerX" secondItem="dh9-4T-CQR" secondAttribute="centerX" id="VaZ-Si-C1S"/>
                             <constraint firstItem="mtQ-Du-eSe" firstAttribute="trailing" secondItem="EMS-n5-AXF" secondAttribute="trailing" constant="50" id="XBN-f8-UU2"/>
                             <constraint firstItem="NRa-dv-B07" firstAttribute="centerX" secondItem="dh9-4T-CQR" secondAttribute="centerX" id="dCk-ys-aZ1"/>
                             <constraint firstItem="mOs-X1-Rtw" firstAttribute="centerX" secondItem="dh9-4T-CQR" secondAttribute="centerX" id="h3h-5z-ms6"/>
                             <constraint firstItem="mOs-X1-Rtw" firstAttribute="top" secondItem="mtQ-Du-eSe" secondAttribute="top" constant="20" id="hgU-Yi-Q0U"/>
                             <constraint firstItem="efv-RT-3eA" firstAttribute="leading" secondItem="mtQ-Du-eSe" secondAttribute="leading" constant="50" id="iGD-Ts-LwV"/>
                             <constraint firstItem="mtQ-Du-eSe" firstAttribute="trailing" secondItem="efv-RT-3eA" secondAttribute="trailing" constant="50" id="jZ4-Ln-ZmF"/>
+                            <constraint firstItem="jU0-ut-fCX" firstAttribute="centerX" secondItem="dh9-4T-CQR" secondAttribute="centerX" id="kmw-Ld-dZj"/>
+                            <constraint firstItem="mtQ-Du-eSe" firstAttribute="trailing" secondItem="jU0-ut-fCX" secondAttribute="trailing" constant="50" id="oJu-sj-ecy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mtQ-Du-eSe"/>
                     </view>
                     <navigationItem key="navigationItem" id="fSM-CO-IVk"/>
                     <connections>
                         <outlet property="agregarButton" destination="NRa-dv-B07" id="54K-Dx-rds"/>
+                        <outlet property="displayLbl" destination="55P-Tj-6Y4" id="Bqb-hN-a5h"/>
                         <outlet property="grabarButton" destination="mOs-X1-Rtw" id="ILa-si-Z4n"/>
                         <outlet property="nombreTextField" destination="EMS-n5-AXF" id="vA2-cG-JWj"/>
                         <outlet property="reproducirButton" destination="nLO-eQ-Onh" id="Crr-ei-XbG"/>

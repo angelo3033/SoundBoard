@@ -14,16 +14,26 @@ class SoundViewController: UIViewController {
     @IBOutlet weak var reproducirButton: UIButton!
     @IBOutlet weak var nombreTextField: UITextField!
     @IBOutlet weak var agregarButton: UIButton!
+    @IBOutlet weak var displayLbl: UILabel!
     
     var grabarAudio:AVAudioRecorder?
     var reproducirAudio:AVAudioPlayer?
     var audioURL:URL?
+    var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configurarGrabacion()
         reproducirButton.isEnabled = false
         agregarButton.isEnabled = true
+        // codigo agregado
+        do {
+            reproducirAudio = try AVAudioPlayer(contentsOf: audioURL!)
+            displayLbl.text = String(reproducirAudio!.duration)
+            
+        }catch{
+            
+        }
     
     }
     
@@ -81,12 +91,19 @@ class SoundViewController: UIViewController {
         }
         
     }
+    // codigo agregado
+    @objc
+    func updateSecond() {
+        displayLbl.text = String(reproducirAudio!.currentTime)
+    }
     
     @IBAction func reproducirTapped(_ sender: Any) {
         
         do {
             try reproducirAudio = AVAudioPlayer(contentsOf: audioURL!)
             reproducirAudio!.play()
+            // timer agregado
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateSecond), userInfo: nil, repeats: true)
             print("reproduciendo")
         }catch{
             
@@ -100,10 +117,20 @@ class SoundViewController: UIViewController {
         let grabacion = Grabacion(context: context)
         grabacion.nombre = nombreTextField.text
         grabacion.audio = NSData(contentsOf: audioURL!)! as Data
+        // atributo de tiempo agregado
+        grabacion.tiempo = displayLbl.text
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationController!.popViewController(animated: true)
         
     }
+    // action para el volumen
+    @IBAction func volumeSlider(_ sender: UISlider) {
+        
+        print(sender.value)
+        reproducirAudio?.volume = sender.value
+        
+    }
+    
     
     
     /*
